@@ -4,6 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.thetaminer.options.LiveVolRawOption;
+import com.thetaminer.options.Put;
+import com.thetaminer.options.Put.Builder;
+
 public class PutTest {
 	public void testBuilder(){
 		/**

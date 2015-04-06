@@ -4,6 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.thetaminer.options.Call;
+import com.thetaminer.options.LiveVolRawOption;
+import com.thetaminer.options.Call.Builder;
+
 public class CallTest {
 	
 	@Test
