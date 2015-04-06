@@ -1,7 +1,9 @@
-package com.thetaminer.options;
+package com.thetaminer.options.containers;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
+
+import com.thetaminer.options.Call;
 
 public class DefaultCallChain implements CallChain{
 	private String quoteDate;
@@ -26,7 +28,7 @@ public class DefaultCallChain implements CallChain{
 		return calls;
 	}
 	
-	public ArrayList<Call> getOutOfTheMoenyCalls(){
+	public ArrayList<Call> getOutOfTheMoneyCalls(){
 		ArrayList<Call> calls = new ArrayList<Call>();
 		for(Call c : theChain.values()){
 			if(c.isOutOfTheMoney()) calls.add(c);
