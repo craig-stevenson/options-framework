@@ -1,34 +1,43 @@
-package com.thetaminer.options;
+package com.framework.options;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.thetaminer.options.LiveVolRawOption;
-import com.thetaminer.options.Put;
-import com.thetaminer.options.Put.Builder;
+import com.framework.options.Call;
+import com.framework.options.Call.Builder;
+import com.thetaminer.options.livevol.LiveVolRawOption;
 
-public class PutTest {
-	public void testBuilder(){
+public class CallTest {
+	
+	@Test
+	public void test() {
+		testBuilder();
+		
+		testCreateFrom();
+		
+	}
+	
+	private void testBuilder() {
 		/**
-		 * Model the follwoing option,
+		 * Model the following option,
 		 * {"quote_date":"2011-08-23",
 		 * "expiration":"2012-09-22",
 		 * "strike":113,
-		 * "option_type":"p",
+		 * "option_type":"c",
 		 * "open":13.7,
-		 * "high":14.7,
-		 * "low":12.7,
-		 * "close":13.00,
+		 * "high":13.7,
+		 * "low":12.85,
+		 * "close":12.85,
 		 * "trade_volume":64.0,
 		 * "bid_1545":12.31,
 		 * "ask_1545":12.57,
 		 * "implied_volatility_1545":0.2739,
 		 * "delta_1545":"-0.3950"}
 		 */
-		Put.Builder b = new Put.Builder();
+		Call.Builder b = new Call.Builder();
 		b.setUnderlyingSymbol("SPY");
-		b.setUnderlyingPrice(200);
+		b.setUnderlyingPrice(112);
 		b.setQuoteDate("2011-08-23");
 		b.setDateOfExpiration("2015-01-01");
 		b.setStrikePrice(113);
@@ -36,21 +45,17 @@ public class PutTest {
 		b.setAsk(1257);
 		b.setDelta(90);
 		
-		Put p = b.build();
+		Call c = b.build();
 		
-		assertEquals(p.getUnderlyingSymbol(), "SPY");
-		assertEquals(p.getUnderlyingPrice(), 200);
-		assertEquals(p.getQuoteDate(), "2011-08-23");
-		assertEquals(p.dateOfExpiration(), "2015-01-01");
-		assertEquals(p.getDelta(), 90);
-		assertEquals(p.getPrice(), (1231+1257)/2);
-	}
-	@Test
-	public void test() {
-		testBuilder();
+		assertEquals(c.getUnderlyingSymbol(), "SPY");
+		assertEquals(c.getUnderlyingPrice(), 112);
+		assertEquals(c.getQuoteDate(), "2011-08-23");
+		assertEquals(c.dateOfExpiration(), "2015-01-01");
+		assertEquals(c.getDelta(), 90);
+		assertEquals(c.getPrice(), (1231+1257)/2);
 		
-		testCreateFrom();
 	}
+	
 	private void testCreateFrom() {
 		StringBuilder input = new StringBuilder();
 		input.append("SPY,") //underlying_symbol
@@ -89,18 +94,17 @@ public class PutTest {
 		     .append("0"); //delivery_code
 		LiveVolRawOption raw = LiveVolRawOption.CreateFrom(input.toString());
 		
-		Put p = Put.CreateFrom(raw);
+		Call c = Call.CreateFrom(raw);
 		
-		assertEquals(p.getUnderlyingSymbol(), "SPY");
-		assertEquals(p.getUnderlyingPrice(), 0);
-		assertEquals(p.getQuoteDate(), "2005-01-10");
-		assertEquals(p.dateOfExpiration(), "2005-01-22");
-		assertEquals(p.getDelta(), 99);
-		assertEquals(p.getPrice(), 0);
-		
-		
-		
+		assertEquals(c.getUnderlyingSymbol(), "SPY");
+		assertEquals(c.getUnderlyingPrice(), 11884);
+		assertEquals(c.getQuoteDate(), "2005-01-10");
+		assertEquals(c.dateOfExpiration(), "2005-01-22");
+		assertEquals(c.getDelta(), 99);
+		assertEquals(c.getPrice(), 3090);
+	
 	}
 	
 	
+
 }

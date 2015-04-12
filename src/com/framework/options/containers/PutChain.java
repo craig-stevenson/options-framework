@@ -1,9 +1,13 @@
-package com.thetaminer.options.containers;
+package com.framework.options.containers;
 
 import java.util.ArrayList;
 
-import com.thetaminer.options.Put;
-
+import com.framework.options.Put;
+/**
+ * 
+ * @author craigstevenson
+ *
+ */
 public interface PutChain {
 	/**
 	 * 

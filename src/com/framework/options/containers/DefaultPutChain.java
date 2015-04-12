@@ -1,10 +1,14 @@
-package com.thetaminer.options.containers;
+package com.framework.options.containers;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
 
-import com.thetaminer.options.Put;
-
+import com.framework.options.Put;
+/**
+ * This is the default implementation of a PutChain
+ * @author craigstevenson
+ *
+ */
 public class DefaultPutChain implements PutChain {
 	private String quoteDate;
 	TreeMap<Integer,Put> theChain;

@@ -1,4 +1,4 @@
-package com.thetaminer.options;
+package com.thetaminer.options.livevol;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -25,22 +25,22 @@ public class LiveVolRawOption {
 	public float ask_1545;
 	public float underlying_bid_1545;
 	public float underlying_ask_1545;
-	public String implied_underlying_price_1545;
-	public String active_underlying_price_1545;
+	public float implied_underlying_price_1545;
+	public float active_underlying_price_1545;
 	public double implied_volatility_1545;
 	public float delta_1545;
-	public String gamma_1545;
-	public String theta_1545;
-	public String vega_1545;
-	public String rho_1545;
-	public String bid_size_eod;
-	public String bid_eod;
-	public String ask_size_eod;
-	public String ask_eod;
-	public String underlying_bid_eod;
-	public String underlying_ask_eod;
-	public String vwap;
-	public String open_interest;
+	public float gamma_1545;
+	public float theta_1545;
+	public float vega_1545;
+	public float rho_1545;
+	public int bid_size_eod;
+	public float bid_eod;
+	public int ask_size_eod;
+	public float ask_eod;
+	public int underlying_bid_eod;
+	public int underlying_ask_eod;
+	public float vwap;
+	public int open_interest;
 	
 	public static LiveVolRawOption CreateFrom(String row){
 		LiveVolRawOption o = new LiveVolRawOption();
@@ -56,20 +56,20 @@ public class LiveVolRawOption {
 		o.low= Double.valueOf(values[8]);
 		o.close= Double.valueOf(values[9]);
 		o.trade_volume=Integer.valueOf(values[10]);
-		//bid_size_1545=values[11];
+		o.bid_size_1545=values[11];
 		o.bid_1545= Float.valueOf(values[12]);//
-		//ask_size_1545=values[13];
+		o.ask_size_1545=values[13];
 		o.ask_1545= Float.valueOf(values[14]);//
 		o.underlying_bid_1545=Float.valueOf(values[15]);
 		o.underlying_ask_1545=Float.valueOf(values[16]);
-		//implied_underlying_price_1545=values[17];
-        //active_underlying_price_1545=values[18];//
-		o.	implied_volatility_1545= Double.valueOf(values[19]);
-		o.	delta_1545=Float.valueOf(values[20]);
-		//gamma_1545=values[21];
-		//theta_1545=values[22];
-		//vega_1545=values[23];
-		//rho_1545=values[24];
+		o.implied_underlying_price_1545=Float.valueOf(values[17]);
+        o.active_underlying_price_1545=Float.valueOf(values[18]);//
+		o.implied_volatility_1545= Float.valueOf(values[19]);
+		o.delta_1545=Float.valueOf(values[20]);
+		o.gamma_1545=Float.valueOf(values[21]);
+		o.theta_1545=Float.valueOf(values[22]);
+		o.vega_1545=Float.valueOf(values[23]);
+		o.rho_1545=Float.valueOf(values[24]);
 		//bid_size_eod=values[25];
 		//bid_eod=values[26];
 		//ask_size_eod=values[27];
