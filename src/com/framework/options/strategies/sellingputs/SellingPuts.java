@@ -21,6 +21,6 @@ public class SellingPuts {
 			}
 			results.add(date, sellToOpen, buyToClose);
 		}
-		return null;
+		return results;
 	}
 }
