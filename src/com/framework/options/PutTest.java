@@ -41,7 +41,7 @@ public class PutTest {
 		assertEquals(p.getUnderlyingSymbol(), "SPY");
 		assertEquals(p.getUnderlyingPrice(), 200);
 		assertEquals(p.getQuoteDate(), "2011-08-23");
-		assertEquals(p.dateOfExpiration(), "2015-01-01");
+		assertEquals(p.getExpirationDate(), "2015-01-01");
 		assertEquals(p.getDelta(), 90);
 		assertEquals(p.getPrice(), (1231+1257)/2);
 	}
@@ -94,7 +94,7 @@ public class PutTest {
 		assertEquals(p.getUnderlyingSymbol(), "SPY");
 		assertEquals(p.getUnderlyingPrice(), 0);
 		assertEquals(p.getQuoteDate(), "2005-01-10");
-		assertEquals(p.dateOfExpiration(), "2005-01-22");
+		assertEquals(p.getExpirationDate(), "2005-01-22");
 		assertEquals(p.getDelta(), 99);
 		assertEquals(p.getPrice(), 0);
 		

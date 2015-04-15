@@ -50,7 +50,7 @@ public class CallTest {
 		assertEquals(c.getUnderlyingSymbol(), "SPY");
 		assertEquals(c.getUnderlyingPrice(), 112);
 		assertEquals(c.getQuoteDate(), "2011-08-23");
-		assertEquals(c.dateOfExpiration(), "2015-01-01");
+		assertEquals(c.getExpirationDate(), "2015-01-01");
 		assertEquals(c.getDelta(), 90);
 		assertEquals(c.getPrice(), (1231+1257)/2);
 		
@@ -99,7 +99,7 @@ public class CallTest {
 		assertEquals(c.getUnderlyingSymbol(), "SPY");
 		assertEquals(c.getUnderlyingPrice(), 11884);
 		assertEquals(c.getQuoteDate(), "2005-01-10");
-		assertEquals(c.dateOfExpiration(), "2005-01-22");
+		assertEquals(c.getExpirationDate(), "2005-01-22");
 		assertEquals(c.getDelta(), 99);
 		assertEquals(c.getPrice(), 3090);
 	

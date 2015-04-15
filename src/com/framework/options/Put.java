@@ -160,7 +160,7 @@ public class Put implements Option {
 	}
 
 	@Override
-	public String dateOfExpiration() {
+	public String getExpirationDate() {
 		return dateOfExpiration.toString();
 	}
 

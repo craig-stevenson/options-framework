@@ -8,7 +8,7 @@ public interface Option {
 	public String getUnderlyingSymbol();
 	public int getUnderlyingPrice();
 	public String getQuoteDate();
-	public String dateOfExpiration();
+	public String getExpirationDate();
 	public int getStrikePrice();
 	public int getDelta();
 	public int getBid();

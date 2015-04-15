@@ -10,10 +10,10 @@ public class DefaultSellingPutsDB implements SellingPutsDB {
 	public void add(Put p){
 		
 	}
+	
 	@Override
 	public ArrayList<String> getExpirationDates() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<String>(expirationDates);
 	}
 
 	@Override
