@@ -171,19 +171,18 @@ public class Put implements Option {
 
 	@Override
 	public int getBid() {
-		// TODO Auto-generated method stub
-		return 0;
+		return bid;
 	}
 
 	@Override
 	public int getAsk() {
 		// TODO Auto-generated method stub
-		return 0;
+		return ask;
 	}
 	@Override
 	public int getStrikePrice() {
 		// TODO Auto-generated method stub
-		return 0;
+		return strikePrice;
 	}
 
 	@Override
