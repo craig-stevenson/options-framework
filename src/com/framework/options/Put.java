@@ -39,6 +39,8 @@ public class Put implements Option {
 		
 		Float bid = o.bid_1545*100;
 		Float ask = o.ask_1545*100;
+		p.bid = bid.intValue();
+		p.ask = ask.intValue();
 		
 		return p;
 		
@@ -113,6 +115,7 @@ public class Put implements Option {
 		}
 		
 		public Put build(){
+			if(this.ask == 0) return null;
 			return new Put(this);
 		}
 		
