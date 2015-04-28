@@ -28,5 +28,6 @@ public interface Option {
 		Builder setDelta(int delta);
 		Builder setBid(int bid);
 		Builder setAsk(int ask);
+		Option build();
 	}
 }
