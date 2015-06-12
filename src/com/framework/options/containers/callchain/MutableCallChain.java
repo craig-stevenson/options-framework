@@ -1,15 +1,15 @@
-package com.framework.options.containers;
+package com.framework.options.containers.callchain;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
 
 import com.framework.options.Call;
 
-public class DefaultCallChain implements CallChain{
+public class MutableCallChain implements CallChain{
 	private String quoteDate;
 	TreeMap<Integer,Call> theChain;
 	
-	public DefaultCallChain(String quoteDate){
+	public MutableCallChain(String quoteDate){
 		this.quoteDate = quoteDate;
 		theChain = new TreeMap<Integer,Call>();
 	}

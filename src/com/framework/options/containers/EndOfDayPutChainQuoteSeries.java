@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-public interface EndOfDayPutChainQuote {
+import com.framework.options.containers.putchain.PutChain;
+
+public interface EndOfDayPutChainQuoteSeries {
 	
 	public static interface builder{
 		public void setExpirationDate(String expirationDate);
@@ -12,8 +14,6 @@ public interface EndOfDayPutChainQuote {
 		public void setPutChain(PutChain chain);
 		public List<String> getQuoteDates();
 		public PutChain getPutChain(String quoteDate);
-		
-		EndOfDayPutChainQuote build();
 	}
 	
 }

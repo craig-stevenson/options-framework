@@ -1,21 +1,28 @@
-package com.framework.options.containers.putseries;
+package com.framework.options.containers.putquoteseries;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import com.framework.options.Put;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
-public class DefaultPutSeries implements PutSeries {
+public final class ImmutablePutQuoteSeries implements PutQuoteSeries {
+	private static final int VERSION = 1;
 	private final Integer strike;
 	private final String expirationDate;
 	private final TreeMap<String,Put> puts;
 	
-	private DefaultPutSeries(DefaultPutSeries.Builder builder) {
+	private ImmutablePutQuoteSeries(ImmutablePutQuoteSeries.Builder builder) {
 		this.strike = builder.strike;
 		this.expirationDate = builder.expirationDate;
 		this.puts = new TreeMap<String,Put>(builder.puts);
@@ -27,9 +34,17 @@ public class DefaultPutSeries implements PutSeries {
 		private TreeMap<String,Put> puts;
 		private Builder(){}
 		
+		public Builder (Integer strike, String expirationDate){
+			this.strike = strike;
+			this.expirationDate = expirationDate;
+			puts = new TreeMap<String,Put>();
+		}
+		
 		public Builder(Put p){
 			strike = p.getStrikePrice();
 			expirationDate = p.getExpirationDate();
+			puts = new TreeMap<String,Put>();
+			addPut(p);
 		}
 				
 		public void addPut(Put p){
@@ -39,10 +54,19 @@ public class DefaultPutSeries implements PutSeries {
 			puts.put(p.getQuoteDate(), p);
 		}
 		
-		public DefaultPutSeries build(){
-			return new DefaultPutSeries(this);
+		public ImmutablePutQuoteSeries build(){
+			return new ImmutablePutQuoteSeries(this);
 		}
 		
+		public static ImmutablePutQuoteSeries fromJSON(String json){
+			JsonParser parser = new JsonParser();
+			JsonElement element = parser.parse(json);
+			if(!element.isJsonObject()) return null;
+			
+			JsonObject object = (JsonObject) element;
+			
+			return null;
+		}
 		
 	}
 	
@@ -54,12 +78,7 @@ public class DefaultPutSeries implements PutSeries {
 		ArrayList<Put> p = new ArrayList<Put>(puts.values());
 		return p;
 	}
-
-	public void add(Put p) {
-		if(!(p.getStrikePrice() == strike.intValue())) return;
-		puts.put(p.getQuoteDate(), p);
-	}
-
+	
 	public String getExpirationDate() {
 		return expirationDate;
 	}
@@ -83,6 +102,24 @@ public class DefaultPutSeries implements PutSeries {
 			pbw.newLine();
 		}
 		pbw.close();	
+	}
+
+	@Override
+	public Collection<String> getQuoteDates() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public String toJSON(){
+		Gson g = new Gson();
+		return g.toJson(this);
+		
+	}
+	
+	public static void main(String[] args){
+		Put.Builder putBuilder = new Put.Builder();
+		
+		ImmutablePutQuoteSeries.Builder b = new ImmutablePutQuoteSeries.Builder();
 	}
 
 }

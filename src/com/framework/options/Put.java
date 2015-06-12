@@ -3,6 +3,7 @@ package com.framework.options;
 import java.time.LocalDate;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.thetaminer.options.livevol.LiveVolRawOption;
 
 public class Put implements Option {
@@ -117,6 +118,11 @@ public class Put implements Option {
 		public Put build(){
 			if(this.ask == 0) return null;
 			return new Put(this);
+		}
+
+		public static Put createFromJSON(JsonElement e) {
+			
+			return null;
 		}
 		
 	}

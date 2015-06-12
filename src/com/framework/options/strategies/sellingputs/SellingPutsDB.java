@@ -1,16 +1,17 @@
 package com.framework.options.strategies.sellingputs;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.framework.options.Put;
-import com.framework.options.containers.PutChain;
+import com.framework.options.containers.putchain.PutChain;
 
 public interface SellingPutsDB {
 
-	ArrayList<String> getExpirationDates();
+	public List<String> getExpirationDates();
 
-	Put getPut(String date, int daysBeforeExpiration, int delta);
+	public Put getPut(String date, int daysBeforeExpiration, int delta);
 
-	ArrayList<Put> getPutQuotes(Put p, int duration);
+	public List<Put> getPutQuotes(Put p, int duration);
 
 }

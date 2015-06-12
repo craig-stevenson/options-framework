@@ -1,4 +1,4 @@
-package com.framework.options.containers;
+package com.framework.options.containers.putchain;
 
 import java.util.ArrayList;
 
@@ -9,11 +9,6 @@ import com.framework.options.Put;
  *
  */
 public interface PutChain {
-	/**
-	 * 
-	 * @param p
-	 */
-	public void addPut(Put p);
 	
 	/**
 	 * 
